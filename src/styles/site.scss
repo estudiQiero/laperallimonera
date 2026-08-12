@@ -1,0 +1,26 @@
+// Full d'estil del lloc — porta directa del tema WordPress original
+// (temaLaPera), adaptat a Astro. Es reutilitzen tal qual els fitxers
+// reset.scss, _colorsTiposMixins.scss, main.scss i pages.scss.
+
+@use "legacy/reset";
+@use "legacy/colorsTiposMixins" as *;
+@use "legacy/main";
+@use "legacy/pages";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+}
+
+// Substitut temporal pel logo Amorino (falta el .webp original a la carpeta d'imatges)
+.lpl-logo-text {
+  display: inline-block;
+  padding: 0.6em 1em;
+  font-family: $titular;
+  font-weight: 700;
+  font-size: 1.3em;
+  color: $verd;
+}

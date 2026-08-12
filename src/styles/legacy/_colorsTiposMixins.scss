@@ -1,0 +1,106 @@
+// Colors
+$blanc: #fff;
+$crema: #f1f1e9;
+$crema-transp: #f1f1e9dd;
+$ocre: #e7d991;
+$verd: #706a1e;
+$marron: #45412c;
+$negre: #282828;
+
+// Colors pel fons
+$fons-clar-1: #706a1e1d;
+$fons-clar-2: #a29f7510;
+
+// Tipografias
+// QuickSand 500, 700
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+
+// Font-family:...
+$titular: 'Roboto Slab',
+sans-serif;
+$texte: 'Quicksand',
+sans-serif;
+
+body {
+    min-width: 320px;
+    background-color: $verd;
+}
+
+h1,
+h2,
+h3 {
+    padding: 0;
+    margin-bottom: 1.2em;
+    color: $verd;
+    line-height: 1.3em;
+    font-family: $titular;
+}
+
+h1 {
+    font: {
+        size: 2.6em;
+        weight: 700;
+    }
+}
+
+h2 {
+    font: {
+        family: $texte;
+        size: 1.6em;
+        weight: 500;
+    }
+
+    hyphens: none;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font: {
+        family: $titular !important;
+        size: 2.1em;
+    }
+}
+
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin-bottom: 1.4em;
+
+    font: {
+        family: $titular;
+        weight: 400;
+    }
+}
+
+p,
+li {
+    padding: 0;
+    margin-bottom: 0; // 1.4em;
+
+    font: {
+        family: $texte !important;
+        weight: 500;
+
+        // style: italic;
+        size: 1.4em;
+    }
+
+    line-height: 1.2em;
+    color: $verd;
+}
+
+// Mixins
+@mixin seccio() {
+    padding: 1em;
+    display: flex;
+}
+
+@mixin fondo ($color-front, $color-back) {
+    background-image: radial-gradient($color-front 0.5px, transparent 3px), radial-gradient($color-front 0.5px, $color-back 3px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}

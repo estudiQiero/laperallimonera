@@ -1,0 +1,91 @@
+---
+// Port fidel de header.php (temaLaPera). L'estructura, ids i classes
+// es mantenen idèntics perquè el CSS (main.scss) ja els dona estil.
+const menuItems = [
+  { href: "#lpl-quiSom", label: "Qui som?" },
+  { href: "#lpl-hospital", label: "Manteniment i recuperació" },
+  { href: "#lpl-seguretat", label: "Protecció i seguretat" },
+  { href: "#lpl-teatre", label: "Redacció de continguts i SEO" },
+  { href: "#lpl-femFacil", label: "Ens adaptem a tú" },
+  { href: "#lpl-queDiuen", label: "Qué diuen de nosaltres" },
+  { href: "#lpl-formulari", label: "Contacta'ns" },
+  { href: "/7iMig/index.html", label: "Juga al 7 i mig!" },
+];
+---
+
+<header id="main-header">
+  <!-- borde superior verd -->
+  <section id="lpl-bordeSuperior"></section>
+  <!-- Capçelera -->
+  <section id="lpl-header">
+    <div id="lpl-cont-menus">
+      <!-- Menú hamburguesa -->
+      <nav id="lpl-menu-principal">
+        <div class="hamburger-menu">
+          <button class="hamburger" id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="mobile-menu" id="mobile-menu">
+            <ul class="menu-items">
+              {menuItems.map((item) => (
+                <li><a href={item.href}>{item.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </nav>
+      <!-- Fi Menu Hamburguesa -->
+    </div>
+    <!-- Logotip a Home -->
+    <div class="lpl-img-LaPera">
+      <a href="/">
+        <img src="/wp-content/uploads/2024/10/Logo-LaPera-Consultors.webp" alt="logotip La Pera Llimonera consultors wordpress" />
+      </a>
+    </div>
+  </section>
+</header>
+
+<script>
+  // Port fidel de js/script.js
+  document.getElementById("hamburger-btn")?.addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.getElementById("mobile-menu")?.classList.toggle("active");
+  });
+
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", function () {
+      document.getElementById("hamburger-btn")?.classList.remove("active");
+      document.getElementById("mobile-menu")?.classList.remove("active");
+    });
+  });
+
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("mobile-menu");
+    const btn = document.getElementById("hamburger-btn");
+    if (!menu || !btn) return;
+    const isClickInsideMenu = menu.contains(event.target as Node);
+    const isClickOnButton = btn.contains(event.target as Node);
+    if (!isClickInsideMenu && !isClickOnButton) {
+      btn.classList.remove("active");
+      menu.classList.remove("active");
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (event) {
+      const href = this.getAttribute("href");
+      if (!href || href === "#") return;
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        event.preventDefault();
+        window.scrollTo({
+          top: (targetElement as HTMLElement).offsetTop,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+</script>

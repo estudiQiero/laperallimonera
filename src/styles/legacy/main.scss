@@ -1,0 +1,2426 @@
+// Full d'estil general
+// 
+// 1. Hero
+// 2. Main
+// 3. Footer
+// Cookies
+
+@use "colorsTiposMixins" as *;
+
+.ocultar {
+    display: none !important;
+}
+
+.opaco {
+    opacity: 0 !important;
+}
+
+// Generiques
+.html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding: 0 !important;
+}
+
+#lpl-bordeSuperior {
+    width: 100%;
+    height: .6em;
+    margin: 0;
+    padding: 0;
+    background-color: $verd;
+}
+
+// Header --------------------------------------
+#about {
+    background-color: $ocre;
+    background-image: none !important;
+}
+
+#lpl-header {
+    @include seccio();
+    height: 340px;
+    flex-direction: column;
+    border: 1.5em solid $crema;
+    border-bottom: 0;
+
+    @include fondo($fons-clar-1, #f3f3ed);
+
+    background-color: $crema;
+    padding: 4em 0 1em 0;
+    opacity: 1;
+
+    // MENU Hamburguesa
+    #lpl-cont-menus {
+        width: 100%;
+        margin: -2em 0 0 0;
+        padding-right: 2em;
+        display: flex;
+
+        #lpl-menu-principal {
+            z-index: 9000;
+            margin-left: 1em;
+            width: 50%;
+            height: 50px;
+
+            // Estil botó hamburguesa
+            .hamburger-menu {
+                border-radius: 200px;
+                background-color: $ocre;
+                padding: 1em;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+
+                .hamburger {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5px;
+                    cursor: pointer;
+                    background: none;
+                    border: none;
+
+                    span {
+                        width: 25px;
+                        height: 4px;
+                        background: $verd;
+                        transition: 0.3s;
+                        border-radius: 2em;
+                    }
+                }
+
+                .hamburger.active {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .hamburger.active span:nth-child(1) {
+                    transform: rotate(45deg) translate(6px, 6px);
+                }
+
+                .hamburger.active span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                .hamburger.active span:nth-child(3) {
+                    transform: rotate(-45deg) translate(6px, -6px);
+                }
+            }
+
+            // Estil menú móvil ocult
+            .mobile-menu {
+                display: none;
+                width: 240px;
+                padding: 2em 0;
+                flex-direction: column;
+                top: 70px;
+                left: 0;
+                position: absolute;
+                background: $crema;
+                border-radius: 8px;
+                box-shadow: 0 30px 70px 10px rgba(146, 146, 146, 0.5);
+
+                &:before {
+                    content: "";
+                    height: 30px;
+                    width: 30px;
+                    transform: rotate(45deg);
+                    background-color: $crema;
+                    position: absolute;
+                    top: -10px;
+                    left: 10px;
+                }
+
+                .menu-items {
+                    list-style: none;
+                    padding: 0;
+
+                    li {
+                        margin-bottom: 0;
+                        padding: .5em 2em;
+                        font-size: 1.5em;
+                        line-height: 1.3em;
+
+                        a {
+                            color: $verd !important;
+                        }
+
+                        &:hover {
+                            background-color: #3f444b12;
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: #333;
+                        }
+
+                        &:last-child {
+                            &:after {
+                                margin-left: .6em;
+                                padding: 0 .5em;
+                                content: "beta";
+                                color: $blanc;
+                                background-color: $verd;
+                                border-radius: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* Mostrar menú al activar */
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+
+        #lpl-menu-lang {
+            margin-right: 1em;
+            width: 50%;
+            height: 50px;
+        }
+    }
+
+    // MENU Idiomes
+    .language-switcher {
+        float: right;
+        font-size: 16px;
+        margin-right: 20px;
+
+        a {
+            color: #333;
+            /* Cambia el color según el diseño */
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Imatge capçelera La Pera
+    .lpl-img-LaPera {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+
+        img {
+            // Imagen La Pera Llimonera
+            width: 200px;
+            height: auto;
+        }
+    }
+}
+
+// Hero --------------------------
+#lpl-hero {
+    @include seccio();
+
+    flex-direction: column;
+    padding: 0;
+    display: flex;
+    border: 1.5em solid $crema;
+    border-top: 0;
+    border-bottom: 0;
+
+    @include fondo($fons-clar-1, #f3f3ed);
+
+    background-color: $crema;
+
+    // $ocre;
+    .lpl-hero-cont-textos {
+
+        h1,
+        h2 {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: $verd;
+        }
+
+        h1 {
+            max-width: 600px;
+            hyphens: none;
+            line-height: 1.1em !important;
+        }
+
+        h2 {
+            padding: 1.2em;
+
+            font: {
+                family: $titular;
+                size: 2em;
+                weight: 400;
+            }
+
+            &:nth-child(2) {
+                padding-bottom: .5em;
+            }
+
+            &:nth-child(3) {
+                padding-top: .5em;
+            }
+
+            color: $verd;
+            text-align: center;
+            line-height: 1.3em !important;
+            hyphens: none;
+            letter-spacing: -1px;
+
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+
+    .elementor-headline-dynamic-text {
+        color: $verd;
+    }
+
+    .elementor-headline--style-highlight {
+        svg {
+            top: 50%;
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+
+    .lpl-hero-cont-logos {
+        padding: 2em 0;
+
+        #lpl-hero-logos {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1em;
+            margin-bottom: 6em;
+
+            .lpl-cont-logosMarques {
+                width: 100%;
+                max-width: 320px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: $crema;
+                background: radial-gradient(circle, rgb(241, 241, 233) 10%, rgb(241, 241, 233, 0.9) 30%, rgba(241, 241, 233, 0) 100%);
+
+                // Wordpress
+                &:nth-child(1) {
+                    img {
+                        width: 240px;
+                        height: 110px;
+                    }
+                }
+
+                // WooCommerce
+                &:nth-child(2) {
+                    img {
+                        width: 240px;
+                        height: 110px;
+                        padding: 3em 0 1em 0;
+                    }
+                }
+
+                // Prestashop
+                &:nth-child(3) {
+                    img {
+                        width: 240px;
+                        height: 110px;
+                    }
+                }
+
+                // Shopify
+                &:nth-child(4) {
+                    img {
+                        width: 240px;
+                        height: 110px;
+                    }
+                }
+
+                img {
+                    padding: 1.5em;
+                    padding-bottom: 0;
+
+                    // background: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 59%, rgba(0,0,0,0) 100%);
+                }
+
+                h6,
+                p {
+                    text-align: center;
+                }
+
+                h6 {
+                    font-size: 1.6em;
+                    font-weight: 500;
+                    margin: .4em 0 .2em 0;
+                    color: rgba(71, 71, 71, 0.76) !important;
+                }
+
+                p {
+                    hyphens: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    #lpl-hero {
+        .lpl-hero-cont-logos {
+            #lpl-hero-logos {
+                flex-direction: row;
+                align-items: flex-start;
+
+                .lpl-cont-logosMarques {
+                    p {
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Qui Som -----------------------
+#lpl-quiSom {
+    // margin-bottom: 2em;
+    padding-bottom: 3em;
+    background-color: $crema;
+
+    .lpl-quiSom-cont {
+        @include seccio();
+        flex-direction: column;
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+
+        .lpl-quiSom-colEsquerra {
+            width: 80%;
+            margin: 0 auto 2em;
+
+            img {
+                max-width: 320px;
+                width: 90%;
+                margin: auto;
+                margin-top: 1.4em;
+                border-radius: 8px;
+            }
+        }
+
+        .lpl-quiSom-colDreta {
+            width: 90%;
+            margin: auto;
+            padding: 1em 1.5em;
+
+            h3 {
+                text-align: center;
+                color: $verd;
+            }
+
+            p {
+                text-align: left;
+                hyphens: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    #lpl-quiSom {
+        .lpl-quiSom-cont {
+            flex-direction: row;
+
+            .lpl-quiSom-colEsquerra {
+                width: 30%;
+                margin: auto;
+            }
+
+            .lpl-quiSom-colDreta {
+                width: 70%;
+
+                h3 {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+// Hospital ---------------------
+#lpl-hospital {
+    @include seccio();
+    width: 100%;
+    height: auto;
+    padding: 0;
+    flex-direction: column;
+    background-color: #081103;
+
+    h3,
+    h4,
+    p {
+        color: $ocre !important;
+    }
+
+    #lpl-hospital-cont {
+        height: 1030px;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        background-image: url("/wp-content/uploads/2024/10/Hab-hospital-camilla-verde-vert-800W.webp");
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: bottom;
+        background-size: initial;
+        display: flex;
+        flex-direction: column;
+
+        #lpl-hospi-cont-textes {
+            padding: 4em 2em;
+
+            h3 {
+                font-style: normal;
+                color: $verd;
+                text-align: center;
+                font-weight: 600;
+                hyphens: none;
+            }
+
+            #lpl-hospital-codi {
+                padding: 2em 0;
+
+                .lpl-qF-H-Cont-cols {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    column-gap: 2em;
+                    row-gap: 2em;
+
+                    .lpl-qf-H-cols {
+                        width: 45%;
+                        max-width: 220px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .lpl-qf-H-cols-icon {
+                            height: 60px;
+                            width: 60px;
+                            margin: 0 auto 1.4em;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: contain;
+                        }
+
+                        &:nth-child(1) {
+                            .lpl-qf-H-cols-icon {
+                                background-image: url('/wp-content/uploads/2024/10/icones/salut-1-recuperacio.svg');
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            .lpl-qf-H-cols-icon {
+                                background-image: url('/wp-content/uploads/2024/10/icones/salut-2-actualitzacio.svg');
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            .lpl-qf-H-cols-icon {
+                                background-image: url('/wp-content/uploads/2024/10/icones/salut-3-velocitat.svg');
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            .lpl-qf-H-cols-icon {
+                                background-image: url('/wp-content/uploads/2024/10/icones/salut-4-enllacos.svg');
+                            }
+                        }
+
+                        h4 {
+                            font: {
+                                family: $titular;
+                                size: 1.6em;
+                                weight: 500;
+                                line-height: 1.3em;
+                                padding-top: 1em;
+                            }
+
+                            color: $verd;
+                            text-align: center;
+                            line-height: 1.2em;
+                            hyphens: none;
+                            letter-spacing: -1px;
+                        }
+                    }
+                }
+
+                p {
+                    text-align: center;
+                    font-weight: 700;
+                    hyphens: none;
+                }
+            }
+        }
+
+        #lpl-hospi-enfermera {
+            height: 100%;
+            width: 100%;
+            max-width: 960px;
+            margin: auto;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            z-index: 1000;
+
+            img {
+                // position: absolute;
+                width: 350px;
+                height: 350px;
+
+                // bottom: 0px;
+                // right: 80px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 764px) {
+    #lpl-hospital {
+        #lpl-hospital-cont {
+            #lpl-hospital-codi {
+                .lpl-qF-H-Cont-cols {
+                    flex-wrap: nowrap !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    #lpl-hospital {
+        #lpl-hospital-cont {
+            background-image: url("/wp-content/uploads/2024/10/Hab-hospital-camilla-verde-1200W.webp");
+            height: 900px;
+
+            #lpl-hospital-codi {
+                .lpl-qF-H-Cont-cols {
+                    column-gap: 4em;
+
+                    .lpl-qf-H-cols {
+                        width: 25%;
+
+                        .lpl-qf-H-cols-icon {
+                            height: 100px;
+                            width: 100px;
+                            background-size: contain;
+                        }
+                    }
+                }
+            }
+
+            #lpl-personatges-enfermera {
+                bottom: 350px;
+                left: 80px;
+
+                img {
+                    position: absolute;
+                    width: 350px;
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
+
+// Seguretat ---------------------
+#lpl-seguretat {
+    @include seccio();
+    height: 1300px;
+    padding: 4em 0 0;
+    background-color: $ocre;
+    background-image: url('/wp-content/uploads/2024/10/fondoDegradadoVigilancia-2W.jpg');
+    background-repeat: repeat-x;
+    background-size: contain;
+    overflow: hidden;
+
+    .lpl-seguretat-cont {
+        height: 100%;
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-image: url("/wp-content/uploads/2024/10/Calle-policia-1200W-1.webp");
+        background-position: -210px bottom;
+        background-repeat: no-repeat;
+
+        // border-radius: 6px;
+        .elementor-element {
+            padding: 0;
+        }
+    }
+
+    h3 {
+        margin: 0 0 2em 0;
+        text-align: center;
+        color: $marron !important;
+        hyphens: none;
+    }
+
+    #lpl-cont-seguretat {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 1em;
+
+        .lpl-S-capsules {
+            width: 45%;
+            margin-bottom: 1.5em;
+
+            // height: 100px;
+            flex-direction: column;
+
+            .lpl-S-cap-icona {
+                width: 40px;
+                height: 40px;
+                margin: 1em auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+
+            h4 {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 0;
+                font-weight: 500;
+                font-size: 1.5em;
+                line-height: 1.2em;
+                text-align: center;
+                hyphens: inherit;
+                color: $marron !important;
+            }
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+
+            // Malware
+            &:nth-child(1) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-1-malware.svg');
+                }
+            }
+
+            // Passwrod
+            &:nth-child(2) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-2-password.svg');
+                }
+            }
+
+            // Firewall
+            &:nth-child(3) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-3-firewall.svg');
+                }
+            }
+
+            // Doble factor
+            &:nth-child(4) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-4-2fa.svg');
+                }
+            }
+
+            // Monitoreig
+            &:nth-child(5) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-5-monitor.svg');
+                }
+            }
+
+            // Auditories
+            &:nth-child(6) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-6-auditoria.svg');
+                }
+            }
+
+            // Backups
+            &:nth-child(7) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-7-backups.svg');
+                }
+            }
+
+            // Certificats
+            &:nth-child(8) {
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-8-certificat.svg');
+                }
+            }
+
+            // Velocitat
+            &:nth-child(9) {
+                display: none;
+
+                .lpl-S-cap-icona {
+                    background-image: url('/wp-content/uploads/2024/10/icones/seguretat-9-recuperacio-rapida.svg');
+                }
+            }
+        }
+    }
+
+    #lpl-personatges-lladre-i-poli {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+
+        .lpl-seguretat-caps-pers {
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            // Lladre
+            &:nth-child(1) {
+                bottom: 0;
+                left: 0;
+                z-index: 800;
+
+                img {
+                    width: 100%;
+                    min-width: 400px;
+                    height: auto;
+                }
+            }
+
+            // Poli
+            &:nth-child(2) {
+                bottom: 150px;
+                right: 0;
+                display: none;
+
+                img {
+                    width: 100%;
+                    min-width: 300px;
+                    height: auto;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    #lpl-seguretat {
+        #lpl-cont-seguretat {
+            .lpl-S-capsules {
+
+                // Velocitat
+                &:nth-child(9) {
+                    display: block;
+                }
+            }
+        }
+
+        #lpl-personatges-lladre-i-poli {
+            height: 100%;
+
+            .lpl-seguretat-caps-pers {
+                position: absolute;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                // Lladre
+                &:nth-child(1) {
+                    bottom: 0;
+                    left: -7%;
+
+                    img {
+                        width: 360px;
+                        height: auto;
+                    }
+                }
+
+                // Poli
+                &:nth-child(2) {
+                    display: block;
+                    bottom: 60px;
+                    right: -70px;
+
+                    img {
+                        width: 280px;
+                        height: auto;
+                        margin: 3em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    #lpl-seguretat {
+        height: 1050px;
+
+        .lpl-seguretat-cont {
+            background-position: center top;
+
+            #lpl-seguretat-textes {
+                #lpl-cont-seguretat {
+                    .lpl-S-capsules {
+                        width: 27%;
+
+                        h4 {
+                            padding: 0 1em;
+                        }
+                    }
+                }
+            }
+
+            #lpl-personatges-lladre-i-poli {
+                width: 900px;
+                height: 100%;
+                margin: 0 auto;
+
+                .lpl-seguretat-caps-pers {
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    // Lladre
+                    &:nth-child(1) {
+                        bottom: 0;
+                        left: 0;
+
+                        img {
+                            width: 420px;
+                            height: auto;
+                        }
+                    }
+
+                    // Poli
+                    &:nth-child(2) {
+                        bottom: 50px;
+                        right: 5%;
+
+                        img {
+                            width: 340px;
+                            height: auto;
+                            margin: 3em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Teatre --------------------------
+#lpl-teatre {
+    @include seccio();
+    height: 1100px;
+    width: 100%;
+    padding: 0;
+    background-color: #0f100d;
+
+    .lpl-teatre-cont {
+        height: 100%;
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        background-image: url("/wp-content/uploads/2024/10/Teatre-1200W.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+
+        // border-radius: 6px;
+        #lpl-teatre-C-textos {
+            margin: 0 auto;
+
+            h3 {
+                margin: 2em 0;
+                text-align: center;
+                hyphens: none;
+                color: $ocre;
+            }
+
+            .lpl-teatre-textes {
+                width: 100%;
+                max-width: 600px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: auto;
+
+                p {
+                    width: 100%;
+                    padding: 0 2em;
+                    font-size: 1.4em;
+                    line-height: 1.3em;
+                    color: $ocre;
+                    hyphens: inherit;
+                }
+            }
+        }
+
+        #lpl-personatges-shakespeare {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+
+            .lpl-teatre-sentence {
+                width: 100%;
+                margin: auto;
+                display: flex;
+
+                em {
+                    margin: auto;
+                    padding: 1em 0;
+                    font-size: 2.1em;
+                    text-align: center;
+                    color: #fff;
+                    position: relative;
+
+                    &::after {
+                        content: url("/wp-content/uploads/2024/10/subraiat-curt.svg");
+                        width: 100%;
+                        height: 80px;
+                        padding-top: 45px;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+                }
+            }
+
+            .lpl-teatre-personatge {
+                display: flex;
+                justify-content: center;
+                margin-top: 100px;
+
+                img {
+                    width: 350px;
+                    height: 350px;
+                    bottom: 0px;
+                    right: 427px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 520px) {
+    #lpl-teatre {
+        height: 1100px;
+
+        .lpl-teatre-cont {
+            .lpl-teatre-textes {
+                max-width: 960px;
+                flex-direction: row !important;
+                justify-content: center;
+
+                p {
+                    width: 40%;
+                    padding: 0 2em;
+                    color: $ocre;
+                    hyphens: inherit;
+                }
+            }
+
+            #lpl-personatges-shakespeare {
+                .lpl-teatre-sentence {
+                    em {
+                        &::after {
+                            width: 100%;
+                            height: 80px;
+                            content: url("/wp-content/uploads/2024/10/subraiat.svg");
+                            left: -6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ho fem fàcil ---------------------
+#lpl-femFacil {
+    @include seccio();
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    border: 1.5em solid $ocre;
+    @include fondo($fons-clar-1, $ocre);
+    background-color: $ocre;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 18px;
+        width: 40px;
+        height: 40px;
+        background-color: $ocre;
+        margin: 0 auto -50px;
+        transform: rotate(45deg);
+        z-index: 2;
+    }
+
+    #lpl-femFacil-cont {
+        max-width: 960px;
+        margin: auto;
+
+        .lpl-femFacil-textes {
+            h3 {
+                font-style: normal;
+                color: $verd;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            h4 {
+                font: {
+                    family: $titular;
+                    size: 1.6em;
+                    weight: 500;
+                }
+
+                color: $verd;
+                text-align: center;
+                line-height: 1.2em;
+                hyphens: none;
+                letter-spacing: -1px;
+            }
+        }
+
+        #lpl-cont-files-caselles {
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+            margin: auto;
+            padding: 0 .5em;
+
+            .lpl-cont-caselles {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: .5em;
+                margin-bottom: .5em;
+                box-sizing: border-box;
+                gap: 10px;
+
+                .lpl-casella-buida {
+                    display: none;
+                }
+
+                .lpl-casella {
+                    width: 100%;
+                    width: 240px;
+                    height: 200px;
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+
+                    &.lpl-imatges-peres-startEnd {
+                        height: 300px;
+                        margin: 2em 0;
+                    }
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+
+                    .lpl-queFem-vectors {
+                        position: absolute;
+                        z-index: 100;
+                        background-repeat: no-repeat;
+                    }
+
+                    .lpl-casella-cont-text {
+                        position: relative;
+
+                        .lpl-queFem-sombraVectors {
+                            position: absolute;
+                            width: 100%;
+                            z-index: 99;
+                            height: 127px;
+                            background-repeat: no-repeat;
+                        }
+
+                        p {
+                            padding: 1em;
+                            text-align: center;
+                            width: 100%;
+                            min-height: 200px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-family: $titular;
+
+                            font: {
+                                style: normal;
+                                weight: 400;
+                            }
+
+                            border-radius: 8px;
+                            background-color: #ffffffa1;
+                            word-break: normal;
+                            font-size: 1.4em;
+                            font-weight: 1.3em;
+                        }
+                    }
+
+                    // Casella 1 Movil
+                    &#lpl-casella-text-1 {
+                        .lpl-queFem-vectors {
+                            height: 149px;
+                            width: 80px;
+                            top: -60px;
+                            right: -30px;
+                            background-image: url('/wp-content/uploads/2024/10/vector1-mobile.svg');
+                        }
+                    }
+
+                    // Casella 2 Movil
+                    &#lpl-casella-text-2 {
+                        .lpl-queFem-vectors {
+                            height: 200px;
+                            width: 106px;
+                            top: -11px;
+                            left: -11px;
+                            background-image: url('/wp-content/uploads/2024/10/vector2-mobile.svg');
+                        }
+
+                        .lpl-casella-cont-text {
+                            .lpl-queFem-sombraVectors {
+                                height: 170px;
+                                top: -37px;
+                                left: -34px;
+                                background-image: url('/wp-content/uploads/2024/10/sombra-vector2-mobile.svg');
+                            }
+                        }
+                    }
+
+                    // Casella 3 Movil
+                    &#lpl-casella-text-3 {
+                        .lpl-queFem-vectors {
+                            height: 118px;
+                            width: 100px;
+                            right: -11px;
+                            top: -18px;
+                            background-image: url('/wp-content/uploads/2024/10/vector3-mobile.svg');
+                        }
+
+                        .lpl-casella-cont-text {
+                            .lpl-queFem-sombraVectors {
+                                height: 100%;
+                                width: 60%;
+                                right: -37px;
+                                bottom: 36px;
+                                background-image: url('/wp-content/uploads/2024/10/sombra-vector3-mobile.svg');
+                            }
+                        }
+                    }
+
+                    // Casella 4 Movil
+                    &#lpl-casella-text-4 {
+                        .lpl-queFem-vectors {
+                            height: 200px;
+                            width: 116px;
+                            top: 49px;
+                            left: -15px;
+                            background-image: url('/wp-content/uploads/2024/10/vector4-mobile.svg');
+                        }
+
+                        .lpl-casella-cont-text {
+                            .lpl-queFem-sombraVectors {
+                                height: 200px;
+                                width: 140px;
+                                left: -35px;
+                                bottom: -108px;
+                                background-image: url('/wp-content/uploads/2024/10/sombra-vector4-mobile.svg');
+                            }
+                        }
+                    }
+
+                    #lpl-queFem-vector-final {
+                        display: none;
+                    }
+                }
+            }
+
+            .lpl-casella-buida {
+                width: 100%;
+                height: 250px;
+            }
+        }
+
+        p {
+            text-align: center;
+            font-weight: 700;
+            hyphens: none;
+        }
+
+        // #lpl-queFem-2cols {
+        // padding: 0;
+        // .e-con-inner {
+        // display: flex;
+        // flex-direction: row;
+        // .elementor-element {
+        // width: 100%;
+        // }
+        // p {
+        // text-align: left;
+        // font-weight: 500;
+        // }
+        // }
+        // }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    #lpl-femFacil {
+        #lpl-femFacil-cont {
+            #lpl-cont-files-caselles {
+                background: rgb(151, 151, 115);
+                background: radial-gradient(circle, rgba(151, 151, 115, .6) 0%, rgba(151, 151, 115, 0) 50%);
+
+                .lpl-cont-caselles {
+                    flex-direction: row;
+
+                    &:nth-child(1) {
+                        .lpl-casella {
+                            align-items: flex-end;
+                        }
+                    }
+
+                    .lpl-casella-buida {
+                        display: block;
+                    }
+
+                    .lpl-casella {
+                        width: 100%;
+                        height: 250px;
+
+                        &.lpl-imatges-peres-startEnd {
+                            height: unset;
+                            margin: unset;
+                        }
+
+                        img {
+                            height: 80%;
+                        }
+
+                        .lpl-queFem-vectors {
+                            position: absolute;
+                            z-index: 100;
+                        }
+
+                        .lpl-casella-cont-text {
+                            position: relative;
+
+                            .lpl-queFem-sombraVectors {
+                                opacity: .5;
+                                position: absolute;
+                                height: 127px;
+                                width: 100%;
+                                z-index: 99;
+                            }
+                        }
+
+                        // Casella 1 Desktop
+                        &#lpl-casella-text-1 {
+                            .lpl-queFem-vectors {
+                                width: 264px;
+
+                                // 234px
+                                top: 24px;
+
+                                // 32px
+                                left: -30px;
+                                right: none;
+                                background-image: url('/wp-content/uploads/2024/10/vector1-desktop.svg');
+                            }
+
+                            .lpl-casella-cont-text {
+                                .lpl-queFem-sombraVectors {
+                                    top: -32px;
+                                    left: -35px;
+                                    background-image: url('/wp-content/uploads/2024/10/sombra-vector1-desktop.svg');
+                                }
+                            }
+                        }
+
+                        // Casella 2 Desktop
+                        &#lpl-casella-text-2 {
+                            .lpl-queFem-vectors {
+                                height: 150px;
+                                width: 126px;
+                                top: 29px;
+                                left: 133px;
+                                background-image: url('/wp-content/uploads/2024/10/vector2-desktop.svg');
+                            }
+
+                            .lpl-casella-cont-text {
+                                .lpl-queFem-sombraVectors {
+                                    top: -34px;
+                                    left: 110px;
+                                    background-image: url('/wp-content/uploads/2024/10/sombra-vector2-desktop.svg');
+                                    width: 150px;
+                                }
+                            }
+                        }
+
+                        // Casella 3 Desktop
+                        &#lpl-casella-text-3 {
+                            .lpl-queFem-vectors {
+                                height: 150px;
+                                width: 252px;
+                                top: 40px;
+                                left: -20px;
+                                background-image: url('/wp-content/uploads/2024/10/vector3-desktop.svg');
+                            }
+
+                            .lpl-casella-cont-text {
+                                .lpl-queFem-sombraVectors {
+                                    height: 150px;
+                                    width: 317px;
+                                    left: -41px;
+                                    bottom: 11px;
+                                    background-image: url('/wp-content/uploads/2024/10/sombra-vector3-desktop.svg');
+                                }
+                            }
+                        }
+
+                        // Casella 4 Desktop
+                        &#lpl-casella-text-4 {
+                            .lpl-queFem-vectors {
+                                height: 110px;
+                                width: 126px;
+                                top: -44px;
+                                left: -9px;
+                                background-image: url('/wp-content/uploads/2024/10/vector4-desktop.svg');
+                            }
+
+                            .lpl-casella-cont-text {
+                                .lpl-queFem-sombraVectors {
+                                    top: -32px;
+                                    left: -31px;
+                                    bottom: none;
+                                    background-image: url('/wp-content/uploads/2024/10/sombra-vector4-desktop.svg');
+                                }
+                            }
+                        }
+
+                        #lpl-queFem-vector-final {
+                            display: block;
+                            width: 36px;
+                            top: 70px;
+                            left: -10px;
+                            background-image: url('/wp-content/uploads/2024/10/vector5-desktop.svg');
+                        }
+                    }
+                }
+
+                .lpl-casella-buida {
+                    width: 100%;
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+// Que Diuen -------------------------
+#lpl-queDiuen {
+    @include seccio();
+    padding-top: 3em;
+    background-color: #000;
+    background-image: url("/wp-content/uploads/2024/10/cesto-con-peras-alta-estrecha-Movil-800W.webp");
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    flex-direction: column;
+
+    h3 {
+        max-width: 360px;
+        margin: 1em auto;
+        color: $blanc;
+        text-align: center;
+        hyphens: none;
+    }
+
+    // Capsules Intro ---------------
+    .lpl-qDiuen-capsulasIntro {
+        width: 100%;
+        margin: auto;
+        box-sizing: content-box;
+        padding: 0;
+
+        // border-bottom: 1px solid #6a6a6a;
+        .lpl-qDiuen-contCaps {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            .lpl-qDiuen-capsules {
+                background: rgb(57, 57, 57);
+                background: radial-gradient(circle, #393939 0%, rgba(57, 57, 57, 0) 50%, rgba(57, 57, 57, 0) 100%);
+                width: 100%;
+
+                // margin: auto;
+                max-width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .lpl-qDiuen-caps-imagen {
+                    border-bottom: 2px solid #fff;
+                    max-width: 300px;
+                    width: 80%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+
+                    &#lpl-qDiuen-peres-ulleres,
+                    &#lpl-qDiuen-peres-clau,
+                    &#lpl-qDiuen-peres-cordill,
+                    &#lpl-qDiuen-peres-bombeta {
+                        position: relative;
+
+                        svg {
+                            position: absolute;
+                        }
+                    }
+
+                    &#lpl-qDiuen-peres-ulleres {
+                        svg {
+                            width: 90px;
+                            height: auto;
+                            left: 81px;
+
+                            // 51px;
+                            top: 77px;
+
+                            // 87px;
+                            animation: gafas 5s infinite;
+                        }
+
+                        @keyframes gafas {
+                            0% {
+                                transform: scale(1)
+                            }
+
+                            50% {
+                                transform: scale(1.3);
+                            }
+
+                            100% {
+                                transform: scale(1);
+                            }
+                        }
+
+                        .cls-1 {
+                            stroke-width: 2.2px;
+                        }
+
+                        .cls-1,
+                        .cls-2 {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-linecap: round;
+                            stroke-miterlimit: 10;
+                        }
+
+                        .cls-2 {
+                            stroke-width: 2.01px;
+                        }
+                    }
+
+                    &#lpl-qDiuen-peres-clau {
+                        svg {
+                            width: 47px;
+                            height: auto;
+                            left: 164px;
+                            top: 72px;
+                            animation: llave 3s infinite;
+                        }
+
+                        @keyframes llave {
+                            0% {
+                                transform: rotate(0deg)
+                            }
+
+                            50% {
+                                transform: rotate(45deg);
+                            }
+
+                            100% {
+                                transform: rotate(0deg);
+                            }
+                        }
+
+                        .cls-1 {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-linecap: round;
+                            stroke-miterlimit: 10;
+                            stroke-width: 1.93px;
+                        }
+                    }
+
+                    &#lpl-qDiuen-peres-cordill {
+                        svg {
+                            width: 6px;
+                            height: auto;
+                            left: 87px;
+                            top: 39px;
+                            overflow: visible;
+                        }
+
+                        .cls-1 {
+                            fill: #fff;
+                        }
+
+                        .cls-2 {
+                            fill: none;
+                            stroke: #fff;
+                            stroke-linecap: round;
+                            stroke-miterlimit: 10;
+                            stroke-width: 2.09px;
+                            animation: cuerda 4s infinite;
+                        }
+
+                        @keyframes cuerda {
+                            0% {
+                                transform: rotate(0deg)
+                            }
+
+                            50% {
+                                transform: rotate(10deg);
+                            }
+
+                            100% {
+                                transform: rotate(0deg);
+                            }
+                        }
+                    }
+
+                    &#lpl-qDiuen-peres-bombeta {
+                        svg {
+                            width: 50px;
+                            height: auto;
+                            left: 136px;
+                            top: 19px;
+                            animation: bombilla 4s infinite;
+                        }
+
+                        @keyframes bombilla {
+                            0% {
+                                transform: rotate(0deg) scale(1);
+                            }
+
+                            50% {
+                                transform: rotate(10deg) scale(1.3);
+                            }
+
+                            100% {
+                                transform: rotate(0deg) scale(1);
+                            }
+                        }
+
+                        .cls-1 {
+                            fill: #fff;
+                        }
+                    }
+
+                    img {
+                        padding: 0 3em;
+                    }
+                }
+
+                p {
+                    margin-left: auto;
+                    margin-right: auto;
+                    color: #fff;
+                    text-align: center;
+                    line-height: normal;
+                    hyphens: none;
+                    padding: 1em;
+                    font-size: 1.4em;
+                }
+            }
+        }
+    }
+
+    // Natrus -----------------------
+    .lpl-qDiuen-natrus {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+        box-sizing: content-box;
+        padding: 1em 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            color: $blanc;
+            text-align: center;
+            max-width: 360px;
+            font-size: 1.7em;
+            padding-top: 0;
+            padding-bottom: .5em;
+        }
+
+        .lpl-qDiuen-N-contBocates {
+            width: 100%;
+            margin-bottom: 1em;
+            margin-top: 1em;
+
+            #lpl-qDiuen-bocata-Midas,
+            #lpl-qDiuen-bocata-Phoenix,
+            #lpl-qDiuen-bocata-Amorino,
+            #lpl-qDiuen-bocata-Euromed {
+                position: relative;
+                transition: all .25s ease-in-out;
+                z-index: 2;
+
+                &:hover {
+                    transform: scale(1.15);
+                    background-color: $crema;
+                }
+            }
+
+            #lpl-qDiuen-bocata-Midas,
+            #lpl-qDiuen-bocata-Phoenix {
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    border-style: solid;
+                }
+            }
+
+            #lpl-qDiuen-bocata-Amorino,
+            #lpl-qDiuen-bocata-Euromed {
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    border-style: solid;
+                }
+            }
+
+            // Bocata Euromed OCULTO
+            #lpl-qDiuen-bocata-Midas {
+                display: none;
+            }
+
+            // Bocata Phoenix
+            #lpl-qDiuen-bocata-Phoenix {
+                &::after {
+                    border-width: 70px 0px 0 50px;
+                    border-color: $crema-transp transparent transparent transparent;
+                    bottom: -70px;
+                    left: 40px;
+                }
+            }
+
+            // Bocata Amorino
+            #lpl-qDiuen-bocata-Amorino {
+                margin-top: -40px;
+
+                &::before {
+                    border-width: 0 50px 70px 0px;
+                    border-color: transparent transparent $crema-transp transparent;
+                    top: -70px;
+                    right: 26px;
+                }
+            }
+
+            // Bocata Euromed OCULTO
+            #lpl-qDiuen-bocata-Euromed {
+                display: none;
+            }
+
+            .lpl-qDiuen-N-bocata {
+                width: 90%;
+                max-width: 320px;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                padding: 1.2em;
+                background-color: $crema-transp;
+                border-radius: 1em;
+
+                h4 {
+                    color: $verd;
+                    text-align: center;
+                    font-size: 1.3em;
+                    line-height: 1.1em;
+                    font-weight: 700;
+                    hyphens: none;
+                    padding-bottom: 0.5em;
+                }
+
+                p {
+                    padding: .5em;
+                    text-align: center;
+                    color: $verd;
+                    font-size: 1.2em;
+                }
+
+                .lpl-qDiuen-N-b-contLogo {
+                    width: 100%;
+                    height: 100%;
+                    max-width: 220px;
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    img {
+                        margin: auto;
+                        padding: 1em;
+                        max-height: 100px;
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        .lpl-qDiuen-N-imatgePera {
+            // padding: 2em 0 1em;
+            max-width: 400px;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    #lpl-queDiuen {
+        background-image: url("/wp-content/uploads/2024/10/cesto-con-peras-alta-1200W.webp");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-color: #000;
+
+        h3 {
+            max-width: 900px;
+        }
+
+        .lpl-qDiuen-capsulasIntro {
+            width: 100%;
+            margin: auto;
+            padding: 0;
+
+            .lpl-qDiuen-contCaps {
+                max-width: 900px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+
+                .lpl-qDiuen-capsules {
+                    p {
+                        font-size: 1.4em;
+                    }
+
+                    .lpl-qDiuen-caps-imagen {
+                        img {
+                            width: 100%;
+                            height: auto;
+                            padding-right: 0;
+                            padding-left: 0;
+                            max-width: 180px;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        &#lpl-qDiuen-peres-ulleres {
+                            svg {
+                                left: 51px;
+                                top: 87px;
+                            }
+                        }
+
+                        &#lpl-qDiuen-peres-clau {
+                            svg {
+                                left: 134px;
+                                top: 72px;
+                            }
+                        }
+
+                        &#lpl-qDiuen-peres-cordill {
+                            svg {
+                                left: 44px;
+                                top: 39px;
+                            }
+                        }
+
+                        &#lpl-qDiuen-peres-bombeta {
+                            svg {
+                                left: 106px;
+                                top: 19px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Natrus -----------------------
+        .lpl-qDiuen-natrus {
+            width: 100%;
+            max-width: 800px;
+            padding: 1em 0 4em 0;
+            margin: auto;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                color: $blanc;
+                text-align: center;
+                max-width: 360px;
+                font-size: 1.4em;
+                padding-top: 0;
+                padding-bottom: .5em;
+                hyphens: none;
+            }
+
+            .lpl-qDiuen-N-contBocates {
+                width: 100%;
+                margin-top: 2em;
+                margin-bottom: 1em;
+                display: flex;
+                justify-content: space-around;
+
+                #lpl-qDiuen-bocata-Midas {
+                    display: block;
+                    transform: rotate(-6deg);
+
+                    &::after {
+                        border-width: 80px 0px 0 70px;
+                        border-color: $crema-transp transparent transparent transparent;
+                        bottom: -79.5px;
+                        right: 30px;
+                    }
+                }
+
+                #lpl-qDiuen-bocata-Phoenix {
+                    transform: rotate(4deg);
+
+                    &::after {
+                        border-width: 70px 50px 0 0px;
+                        border-color: $crema-transp transparent transparent transparent;
+                        bottom: -69.5px;
+                        right: 40px;
+                    }
+                }
+
+                #lpl-qDiuen-bocata-Amorino {
+                    margin-top: -40px;
+                    transform: rotate(2deg);
+
+                    &::before {
+                        border-width: 0 0px 70px 50px;
+                        border-color: transparent transparent $crema-transp transparent;
+                        top: -70px;
+                        right: 26px;
+                    }
+                }
+
+                #lpl-qDiuen-bocata-Euromed {
+                    display: block;
+                    margin-top: -55px;
+                    transform: rotate(-3deg);
+
+                    &::before {
+                        border-width: 0 52px 69px 0px;
+                        border-color: transparent transparent $crema-transp transparent;
+                        top: -68.5px;
+                        left: 30px;
+                    }
+                }
+
+                .lpl-qDiuen-N-bocata {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 1.2em;
+                    width: 45%;
+
+                    h4 {
+                        color: $verd;
+                        text-align: center;
+                        font-size: 1.4em;
+                        line-height: 1.1em;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        padding: .5em;
+                        text-align: center;
+                        color: $verd;
+                        font-size: 1.1em;
+                        line-height: 1.1em;
+                    }
+
+                    .lpl-qDiuen-N-b-contLogo {
+                        width: 100%;
+                        max-width: 220px;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        img {
+                            padding: .5em;
+                            margin: auto;
+                            height: 100%;
+                            max-height: 80px;
+                        }
+                    }
+                }
+            }
+
+            .lpl-qDiuen-N-imatgePera {
+                // padding: 2em 0 1em;
+                max-width: 340px;
+            }
+        }
+    }
+}
+
+// Formulari --------------------------
+#lpl-formulari {
+    @include seccio();
+    flex-direction: column;
+
+    border: 1.5em solid #000;
+    border-bottom: 0;
+
+    @include fondo(#aeaeae40, #000);
+    background-color: #000;
+
+    h3 {
+        font-family: $titular;
+        text-align: center;
+        color: $ocre;
+    }
+
+    p {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 2em auto;
+        color: $crema;
+    }
+
+    label {
+        font-family: $titular;
+    }
+
+    header {
+        width: 100%;
+        max-width: 960px;
+        margin: 2em auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            text-align: center;
+        }
+    }
+
+    // Form
+    #wpcf7-f9-o1 {
+        margin: auto;
+        padding: 1.5em;
+
+        .wpcf7-form {
+            display: flex;
+            flex-direction: column;
+
+            .lpl-form-contCols {
+                width: 100%;
+                max-width: 320px;
+                // height: 2em;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                // align-items: center;
+                flex-wrap: wrap;
+                column-gap: 1em;
+
+                font: {
+                    family: $titular;
+                    size: 1.2em;
+                }
+
+                p {
+                    height: 5em;
+                    width: 100%;
+                    padding: 0;
+                    font-size: 1.4em;
+
+                    label {
+                        margin-bottom: 2em;
+
+                        // texte del placeholder
+                        .wpcf7-form-control {
+                            width: 100%;
+                            margin-top: .5em;
+                            font-family: $texte;
+                            color: $crema;
+                            background-color: #000 !important;
+                            border: 1px solid #505050;
+                            padding: 0.7em;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+
+                // Missatge
+                .lpl-form-1col {
+                    p {
+                        height: auto;
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+
+                // Accepta i envia
+                .lpl-form-accepta {
+                    width: 100%;
+                    margin: 1em 0 0 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    p {
+                        margin: 0;
+
+                        a {
+                            color: $ocre;
+                            text-decoration: underline;
+                        }
+
+                        &:nth-child(1) {
+                            width: 40px;
+                        }
+
+                        &:nth-child(2) {
+                            width: 300px;
+                            padding-left: .4em;
+                        }
+                    }
+                }
+
+                .lpl-form-envia {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 1.5em;
+
+                    p {
+                        width: 100%;
+                        max-width: 216px;
+
+                        input[type="submit"] {
+                            text-transform: none;
+
+                            &.btn {
+                                font-weight: 600 !important;
+                            }
+                        }
+
+                        .wpcf7-submit {
+                            padding: .6em 4em;
+                            border-radius: 200px;
+
+                            font: {
+                                family: $titular !important;
+                                size: 1.2em;
+                                color: $crema;
+                            }
+
+                            background-color: $ocre;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    // Resposta de servidor
+    .wpcf7-response-output {
+        background-color: #46b450 !important;
+        padding: 1em !important;
+        border: 0 !important;
+        text-align: center !important;
+        color: #fff !important;
+        font-size: 1.8em !important;
+        font-family: $texte !important;
+        border-radius: 5px !important;
+    }
+
+    .lpl-form-subtitol {
+        max-width: 760px;
+        margin: 0 auto 2em;
+
+        p {
+            font-size: 1.1em;
+            color: $crema;
+            hyphens: none;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    #lpl-formulari {
+        #wpcf7-f9-o1 {
+            .wpcf7-form {
+                .lpl-form-contCols {
+                    max-width: 800px;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        width: 48%;
+                        max-width: 100%;
+                    }
+
+                    .lpl-form-1col {
+                        width: 100%;
+                        max-width: none;
+                    }
+
+                    &:nth-child(4) {
+                        flex-direction: column;
+
+
+                        .lpl-form-envia {
+                            align-items: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footer
+#lpl-footer {
+    @include seccio();
+
+    border: 1.5em solid #000;
+    border-top: 0;
+
+    // @include fondo(#aeaeae25, #000);
+
+    background-color: #000;
+    min-height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $blanc;
+
+    // border-bottom: .6em solid $verd;
+    img {
+        margin: -4em auto 1em auto;
+        padding: 1em;
+        height: 150px;
+        width: 170px;
+
+        // max-width: 140px;
+        z-index: 1000;
+        background-color: #000;
+        background: radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .lpl-cont-pagLegals {
+        height: auto;
+        width: 100%;
+        max-width: 320px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .lpl-item-pagLegals {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            img {
+                height: 30px;
+                width: 30px;
+                border-radius: 200px;
+                padding: 0;
+                margin: 0 auto .5em auto;
+            }
+
+            p {
+                font-size: 1em;
+                line-height: 1.1em;
+                color: $verd;
+                text-align: center;
+            }
+
+            a {
+                p {
+                    opacity: 0;
+                    transition: .25s all ease-in-out;
+                }
+
+                &:hover {
+                    p {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .lpl-footer-content {
+        p {
+            font-size: 1.1em !important;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+#lpl-bajoFooter {
+    width: 100%;
+    height: .6em;
+    margin: 0;
+    padding: 0;
+    background-color: $verd;
+}
+
+// Pagina 404 ------------------------------
+#lpl-404 {
+    height: 100%;
+    min-height: 600px;
+    background-image: radial-gradient(rgba(112, 106, 30, 0.1137254902) 0.5px, transparent 3px), radial-gradient(rgba(112, 106, 30, 0.1137254902) 0.5px, #f3f3ed 3px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    background-color: #f1f1e9;
+    padding: 1em;
+
+    h2,
+    h3,
+    p {
+        text-align: center;
+        hyphens: none;
+    }
+
+    #lpl-pera404 {
+        img {
+            width: 90%;
+            max-width: 700px;
+            margin-bottom: 5em;
+            padding: 2em;
+        }
+    }
+}
+
+
+
+// Utilitats Externes ----------------------
+// CookieYes
+
+.cky-consent-container {}
+
+.cky-consent-container,
+.cky-modal {
+    background: $crema !important;
+    border-radius: 8px;
+    box-shadow: 0 30px 70px 10px rgba(146, 146, 146, 0.5) !important;
+
+    .cky-title,
+    .cky-notice-btn-wrapper,
+    .cky-preference-title,
+    .cky-accordion-btn,
+    .cky-btn {
+        font-family: $titular !important;
+        color: $marron !important;
+    }
+
+    .cky-always-active {
+        font-family: $titular !important;
+    }
+
+    p {
+        color: $verd !important;
+    }
+}
+
+.cky-overlay {
+    opacity: 0.6 !important;
+}
+
+.cky-accordion-header {
+    .cky-accordion-btn {
+        box-shadow: none !important;
+    }
+}
+
+.cky-show-desc-btn {
+    box-shadow: none !important;
+}

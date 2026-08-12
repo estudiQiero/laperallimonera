@@ -1,0 +1,144 @@
+@use "colorsTiposMixins" as *;
+
+.page-template-plantilla_legals {
+    #main {
+        height: 100%;
+        padding: 0 2em;
+        background-color: $blanc;
+    }
+}
+
+.error404 {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header {
+        background-color: $verd;
+    }
+
+    .lpl-404-contenidor {
+        width: 100%;
+        flex: 1;
+        padding: 0 2em;
+        background-color: $blanc;
+
+        .lpl-404-cont-textes {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 4em 0;
+
+            h1 {
+                font-family: $titular;
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            img {
+                width: 100%;
+                max-width: 600px;
+                margin: 4em auto;
+            }
+        }
+
+        .lpl-404-cont-icones {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto 3em auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin: 0 auto 1em auto;
+                font-family: $titular;
+                text-align: center;
+                font-size: 2.1em;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    transition: .25s all ease-in-out;
+
+                    img {
+                        width: 45px;
+                        height: 45px;
+                        margin-bottom: 1em;
+                    }
+
+                    p {
+                        opacity: 0;
+                        font-size: 1em;
+                        text-align: center;
+                        hyphens: none;
+                    }
+
+                    &:hover {
+                        p {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        padding: 0 2em;
+        background-color: $verd;
+    }
+}
+
+.lpl-contenidor {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 4em 0;
+
+    h1,
+    h2,
+    h3 {
+        padding: 0;
+        margin-bottom: 1.2em;
+        color: $verd;
+        line-height: 1.3em;
+        font-family: $titular;
+    }
+
+    h1 {
+        font: {
+            size: 2.6em;
+            weight: 700;
+        }
+    }
+
+    h2 {
+        font: {
+            size: 1.6em;
+            weight: 500;
+        }
+
+        hyphens: none;
+        letter-spacing: -1px;
+    }
+
+    h3 {
+        font: {
+            family: $titular;
+            size: 2.1em;
+        }
+    }
+}
