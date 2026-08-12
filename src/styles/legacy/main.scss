@@ -2046,11 +2046,11 @@
     @include seccio();
     flex-direction: column;
 
-    border: 1.5em solid #000;
+    border: 1.5em solid #171717;
     border-bottom: 0;
 
-    @include fondo(#aeaeae40, #000);
-    background-color: #000;
+    // @include fondo(#aeaeae40, #000);
+    background-color: #171717;
 
     h3 {
         font-family: $titular;
@@ -2267,12 +2267,12 @@
 #lpl-footer {
     @include seccio();
 
-    border: 1.5em solid #000;
+    border: 1.5em solid #171717;
     border-top: 0;
 
     // @include fondo(#aeaeae25, #000);
 
-    background-color: #000;
+    background-color: #171717;
     min-height: 20%;
     display: flex;
     flex-direction: column;
