@@ -15,6 +15,29 @@ body {
   min-width: 320px;
 }
 
+#lpl-formulari .lpl-form-final {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.5em;
+
+  .lpl-form-accepta {
+    margin-top: 0;
+  }
+
+  .lpl-form-envia {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 800px) {
+  #lpl-formulari .lpl-form-final {
+    margin-top: 1em;
+  }
+}
+
 // Substitut temporal pel logo Amorino (falta el .webp original a la carpeta d'imatges)
 .lpl-logo-text {
   display: inline-block;
