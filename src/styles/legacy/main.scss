@@ -5,7 +5,7 @@
 // 3. Footer
 // Cookies
 
-@use "colorsTiposMixins" as *;
+@use "colorsTiposMixins"as *;
 
 .ocultar {
     display: none !important;
@@ -2140,66 +2140,69 @@
                     }
                 }
 
-                // Accepta i envia
-                .lpl-form-accepta {
-                    width: 100%;
-                    margin: 1em 0 0 0;
-                    padding: 0;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
+                .lpl-form-final {
 
-                    p {
-                        margin: 0;
-
-                        a {
-                            color: $ocre;
-                            text-decoration: underline;
-                        }
-
-                        &:nth-child(1) {
-                            width: 40px;
-                        }
-
-                        &:nth-child(2) {
-                            width: 300px;
-                            padding-left: .4em;
-                        }
-                    }
-                }
-
-                .lpl-form-envia {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    margin-top: 1.5em;
-
-                    p {
+                    // Accepta i envia
+                    .lpl-form-accepta {
                         width: 100%;
-                        max-width: 216px;
+                        margin: 1em 0 0 0;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
 
-                        input[type="submit"] {
-                            text-transform: none;
+                        p {
+                            margin: 0;
 
-                            &.btn {
-                                font-weight: 600 !important;
-                            }
-                        }
-
-                        .wpcf7-submit {
-                            padding: .6em 4em;
-                            border-radius: 200px;
-
-                            font: {
-                                family: $titular !important;
-                                size: 1.2em;
-                                color: $crema;
+                            a {
+                                color: $ocre;
+                                text-decoration: underline;
                             }
 
-                            background-color: $ocre;
+                            &:nth-child(1) {
+                                width: 40px;
+                            }
+
+                            &:nth-child(2) {
+                                width: 300px;
+                                padding-left: .4em;
+                            }
                         }
                     }
 
+                    .lpl-form-envia {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-top: 1.5em;
+
+                        p {
+                            width: 100%;
+                            max-width: 216px;
+
+                            input[type="submit"] {
+                                text-transform: none;
+
+                                &.btn {
+                                    font-weight: 600 !important;
+                                }
+                            }
+
+                            .wpcf7-submit {
+                                padding: .6em 4em;
+                                border-radius: 200px;
+
+                                font: {
+                                    family: $titular !important;
+                                    size: 1.2em;
+                                    color: $crema;
+                                }
+
+                                background-color: $ocre;
+                            }
+                        }
+
+                    }
                 }
             }
         }
