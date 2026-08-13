@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 10:29 CEST
+// Última modificació: 2026-08-13 10:41 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -45,6 +45,8 @@
     flex-direction: column;
     border: 1.5em solid $crema;
     border-bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 
     @include textura-paper();
 
@@ -397,6 +399,10 @@
 #lpl-quiSom {
     // margin-bottom: 2em;
     padding-bottom: 3em;
+    border: 1.5em solid $crema;
+    border-top: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     @include textura-paper();
 
     .lpl-quiSom-cont {
