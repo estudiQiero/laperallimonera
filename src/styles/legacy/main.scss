@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 11:18 CEST
+// Última modificació: 2026-08-13 13:48 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -131,33 +131,61 @@
                 }
             }
 
-            // Estil menú móvil ocult
+            // Estil menú móvil ocult. Ara és el contenidor de 2 càpsules
+            // separades: la de seccions de la pàgina, i la de "Apps".
             .mobile-menu {
                 display: none;
                 width: 240px;
-                padding: 2em 0;
                 flex-direction: column;
+                gap: 1em;
                 top: 70px;
                 left: 0;
                 position: absolute;
-                background: $crema;
-                border-radius: 8px;
-                box-shadow: 0 30px 70px 10px rgba(146, 146, 146, 0.5);
 
-                &:before {
-                    content: "";
-                    height: 30px;
-                    width: 30px;
-                    transform: rotate(45deg);
-                    background-color: $crema;
-                    position: absolute;
-                    top: -10px;
-                    left: 10px;
+                // Càpsula individual: fons, cantonades i ombra propis, per
+                // poder separar visualment les seccions de les apps.
+                .lpl-menu-capsula {
+                    position: relative;
+                    padding: 2em 0;
+                    background: $crema;
+                    border-radius: 8px;
+                    box-shadow: 0 30px 70px 10px rgba(146, 146, 146, 0.5);
+
+                    // Fletxa que apunta al botó hamburguesa, només a la
+                    // primera càpsula (la de les seccions)
+                    &:first-child {
+                        &:before {
+                            content: "";
+                            height: 30px;
+                            width: 30px;
+                            transform: rotate(45deg);
+                            background-color: $crema;
+                            position: absolute;
+                            top: -10px;
+                            left: 10px;
+                        }
+                    }
+                }
+
+                // Càpsula de les Apps (Copermiq, 7 i mig...)
+                .lpl-menu-capsula-apps {
+                    padding: 1.5em 0;
+
+                    .lpl-menu-apps-titol {
+                        margin: 0 0 .3em 0;
+                        padding: 0 2em;
+                        font-family: $texte;
+                        font-size: 1.3em;
+                        font-weight: 700;
+                        color: $verd;
+                        opacity: .6;
+                    }
                 }
 
                 .menu-items {
                     list-style: none;
                     padding: 0;
+                    margin: 0;
 
                     li {
                         margin-bottom: 0;
@@ -178,7 +206,10 @@
                             color: #333;
                         }
 
-                        &:last-child {
+                        // Distintiu "beta": ara s'aplica explícitament a
+                        // l'enllaç del 7 i mig (classe pròpia), no al darrer
+                        // element de la llista com abans.
+                        &.lpl-menu-item-beta {
                             &:after {
                                 margin-left: .6em;
                                 padding: 0 .5em;

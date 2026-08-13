@@ -1,6 +1,12 @@
 ---
+// Última modificació: 2026-08-13 13:48 CEST
 // Port fidel de header.php (temaLaPera). L'estructura, ids i classes
 // es mantenen idèntics perquè el CSS (main.scss) ja els dona estil.
+//
+// El menú mòbil té 2 càpsules separades (.lpl-menu-capsula): la de
+// seccions de la pàgina (menuItems) i la de "Apps" (appItems), amb
+// Copermiq i el 7 i mig. El 7 i mig encara no està fet, així que de
+// moment enllaça a "#".
 const menuItems = [
   { href: "#lpl-quiSom", label: "Qui som?" },
   { href: "#lpl-hospital", label: "Manteniment i recuperació" },
@@ -9,7 +15,11 @@ const menuItems = [
   { href: "#lpl-femFacil", label: "Ens adaptem a tú" },
   { href: "#lpl-queDiuen", label: "Qué diuen de nosaltres" },
   { href: "#lpl-formulari", label: "Contacta'ns" },
-  { href: "/7iMig/index.html", label: "Juga al 7 i mig!" },
+];
+
+const appItems = [
+  { href: "https://copermiq.com", label: "Copermiq", external: true },
+  { href: "#", label: "Juga al 7 i mig!", beta: true },
 ];
 ---
 
@@ -29,11 +39,30 @@ const menuItems = [
           </button>
 
           <nav class="mobile-menu" id="mobile-menu">
-            <ul class="menu-items">
-              {menuItems.map((item) => (
-                <li><a href={item.href}>{item.label}</a></li>
-              ))}
-            </ul>
+            <div class="lpl-menu-capsula">
+              <ul class="menu-items">
+                {menuItems.map((item) => (
+                  <li><a href={item.href}>{item.label}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="lpl-menu-capsula lpl-menu-capsula-apps">
+              <p class="lpl-menu-apps-titol">Apps</p>
+              <ul class="menu-items">
+                {appItems.map((item) => (
+                  <li class={item.beta ? "lpl-menu-item-beta" : undefined}>
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener" : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </div>
       </nav>
@@ -75,7 +104,7 @@ const menuItems = [
   });
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (event) {
+    anchor.addEventListener("click", function (this: Element, event) {
       const href = this.getAttribute("href");
       if (!href || href === "#") return;
       const targetElement = document.querySelector(href);
