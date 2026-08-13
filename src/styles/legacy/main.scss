@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 13:48 CEST
+// Última modificació: 2026-08-13 14:02 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -2224,7 +2224,10 @@
                     padding: 0;
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
                     justify-content: center;
+                    // Junta el checkbox amb el text "Accepto..."
+                    gap: .5em;
 
                     p {
                         margin: 0;
@@ -2233,14 +2236,59 @@
                             color: $ocre;
                             text-decoration: underline;
                         }
+                    }
 
-                        &:nth-child(1) {
-                            width: 40px;
+                    // Checkbox personalitzat: quadrat gran amb el mateix
+                    // groc que el botó "Enviar", i un tic (en marcar-lo) del
+                    // mateix color i gruix que les ratlles/aspa del menú
+                    // hamburguesa ($verd, 4px).
+                    .lpl-check {
+                        position: relative;
+                        display: inline-flex;
+                        cursor: pointer;
+                        flex-shrink: 0;
+
+                        input[type="checkbox"] {
+                            position: absolute;
+                            inset: 0;
+                            width: 100%;
+                            height: 100%;
+                            margin: 0;
+                            opacity: 0;
+                            cursor: pointer;
                         }
 
-                        &:nth-child(2) {
-                            width: 300px;
-                            padding-left: .4em;
+                        .lpl-check-mark {
+                            width: 34px;
+                            height: 34px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: $ocre;
+                            border-radius: 8px;
+                            transition: box-shadow .2s;
+
+                            &:after {
+                                content: "";
+                                width: 14px;
+                                height: 9px;
+                                margin-top: -2px;
+                                border-left: 4px solid $verd;
+                                border-bottom: 4px solid $verd;
+                                transform: rotate(-45deg);
+                                opacity: 0;
+                                transition: opacity .15s;
+                            }
+                        }
+
+                        input[type="checkbox"]:checked+.lpl-check-mark {
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+
+                        input[type="checkbox"]:focus-visible+.lpl-check-mark {
+                            box-shadow: 0 0 0 3px rgba($verd, .35);
                         }
                     }
                 }

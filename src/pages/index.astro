@@ -1,5 +1,5 @@
 ---
-// Última modificació: 2026-08-13 10:59 CEST
+// Última modificació: 2026-08-13 14:02 CEST
 // Port fidel de plantilles/index-codiHome.php (temaLaPera)
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
@@ -426,7 +426,12 @@ const UP = "/wp-content/uploads/2024/10";
             </div>
             <div class="lpl-form-final">
               <div class="lpl-form-accepta">
-                <p><input type="checkbox" name="accepta" required /></p>
+                <p>
+                  <label class="lpl-check">
+                    <input type="checkbox" name="accepta" required />
+                    <span class="lpl-check-mark" aria-hidden="true"></span>
+                  </label>
+                </p>
                 <p>Accepto la <a href="/politica_privadesa">política de privadesa</a></p>
               </div>
               <div class="lpl-form-envia">
