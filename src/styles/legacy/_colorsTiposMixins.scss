@@ -105,17 +105,17 @@ li {
     background-position: 0 0, 10px 10px;
 }
 
-// Última modificació: 2026-08-13 10:29 CEST
-// Afegit fora del tema original: textura de paper natural (gra fi via SVG +
-// degradats suaus), sense cap imatge externa. Substitueix el mixin `fondo()`
-// (punts sòlids) a #lpl-header, #lpl-hero i #lpl-quiSom.
+// Última modificació: 2026-08-13 10:35 CEST
+// Afegit fora del tema original: textura de paper natural (gra via SVG),
+// sense cap imatge externa. Substitueix el mixin `fondo()` (punts sòlids) a
+// #lpl-header, #lpl-hero i #lpl-quiSom. Sense degradats: en tocar-se dues
+// seccions seguides, els degradats independents de cadascuna feien un tall
+// visible a la unió — es manté només el gra, repetit de manera uniforme
+// perquè no es noti la costura entre seccions.
 @mixin textura-paper($base-color: $crema) {
     background-color: $base-color;
-    background-image:
-        radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.4), transparent 60%),
-        radial-gradient(ellipse at bottom right, rgba(112, 106, 30, 0.07), transparent 65%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    background-repeat: no-repeat, no-repeat, repeat;
-    background-size: cover, cover, 220px 220px;
-    background-blend-mode: normal, normal, multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 220px 220px;
+    background-blend-mode: multiply;
 }
