@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 10:15 CEST
+// Última modificació: 2026-08-13 11:10 CEST
 // Full d'estil del lloc — porta directa del tema WordPress original
 // (temaLaPera), adaptat a Astro. Es reutilitzen tal qual els fitxers
 // reset.scss, _colorsTiposMixins.scss, main.scss i pages.scss.
@@ -28,14 +28,17 @@ body {
 
 // Bloc final del formulari (checkbox de privadesa + botó d'enviar).
 // Força fila pròpia perquè no quedi solapat sota .lpl-form-1col (Missatge)
-// al layout d'escriptori, i junta+centra els dos blocs.
+// al layout d'escriptori, i junta+centra els dos blocs. Fons i border al
+// mateix to que la resta del formulari (#1b1b1b).
 #lpl-formulari .lpl-form-final {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5em;
-  margin-top: 0.5em;
+  margin-top: 5em;
+  background-color: #1b1b1b;
+  border: 1px solid #1b1b1b;
 
   .lpl-form-accepta {
     margin-top: 0;
@@ -43,12 +46,6 @@ body {
 
   .lpl-form-envia {
     margin-top: 0;
-  }
-}
-
-@media (min-width: 800px) {
-  #lpl-formulari .lpl-form-final {
-    margin-top: 1em;
   }
 }
 
