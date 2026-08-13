@@ -1,5 +1,5 @@
 ---
-// Última modificació: 2026-08-13 13:48 CEST
+// Última modificació: 2026-08-13 16:45 CEST
 // Port fidel de header.php (temaLaPera). L'estructura, ids i classes
 // es mantenen idèntics perquè el CSS (main.scss) ja els dona estil.
 //
@@ -7,6 +7,12 @@
 // seccions de la pàgina (menuItems) i la de "Apps" (appItems), amb
 // Copermiq i el 7 i mig. El 7 i mig encara no està fet, així que de
 // moment enllaça a "#".
+//
+// Els enllaços de menuItems apunten a seccions de la home (#lpl-quiSom,
+// etc.). Si no estem a la home (p. ex. a /politica_privadesa), cal
+// anteposar "/" perquè primer naveguin a la home i després saltin a la
+// secció — un "#lpl-quiSom" sol en una pàgina sense aquest id no fa res.
+const isHome = Astro.url.pathname === "/";
 const menuItems = [
   { href: "#lpl-quiSom", label: "Qui som?" },
   { href: "#lpl-hospital", label: "Manteniment i recuperació" },
@@ -15,7 +21,10 @@ const menuItems = [
   { href: "#lpl-femFacil", label: "Ens adaptem a tú" },
   { href: "#lpl-queDiuen", label: "Qué diuen de nosaltres" },
   { href: "#lpl-formulari", label: "Contacta'ns" },
-];
+].map((item) => ({
+  ...item,
+  href: isHome ? item.href : `/${item.href}`,
+}));
 
 const appItems = [
   { href: "https://copermiq.com", label: "Copermiq", external: true },
