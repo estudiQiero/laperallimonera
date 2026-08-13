@@ -1,3 +1,4 @@
+// Última modificació: 2026-08-13 10:15 CEST
 // Full d'estil del lloc — porta directa del tema WordPress original
 // (temaLaPera), adaptat a Astro. Es reutilitzen tal qual els fitxers
 // reset.scss, _colorsTiposMixins.scss, main.scss i pages.scss.
@@ -15,6 +16,19 @@ body {
   min-width: 320px;
 }
 
+// Camp honeypot antispam de Netlify Forms (ocult per a humans, visible per a bots)
+.lpl-form-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Bloc final del formulari (checkbox de privadesa + botó d'enviar).
+// Força fila pròpia perquè no quedi solapat sota .lpl-form-1col (Missatge)
+// al layout d'escriptori, i junta+centra els dos blocs.
 #lpl-formulari .lpl-form-final {
   width: 100%;
   display: flex;
@@ -25,9 +39,6 @@ body {
 
   .lpl-form-accepta {
     margin-top: 0;
-    p {
-      height: 1em !important;
-    }
   }
 
   .lpl-form-envia {
@@ -39,6 +50,28 @@ body {
   #lpl-formulari .lpl-form-final {
     margin-top: 1em;
   }
+}
+
+// Missatge d'èxit/error en enviar el formulari de contacte (AJAX)
+.lpl-form-missatge {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto 1.5em;
+  padding: 1em;
+  text-align: center;
+  font-family: $texte;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.lpl-form-missatge--ok {
+  background-color: #46b450;
+  color: #fff;
+}
+
+.lpl-form-missatge--error {
+  background-color: #c0392b;
+  color: #fff;
 }
 
 // Substitut temporal pel logo Amorino (falta el .webp original a la carpeta d'imatges)
