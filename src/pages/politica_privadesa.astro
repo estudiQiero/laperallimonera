@@ -1,9 +1,13 @@
 ---
-// Última modificació: 2026-08-13 14:18 CEST
+// Última modificació: 2026-08-13 17:23 CEST
 // Pàgina de política de privadesa. Reutilitza la mateixa capçelera
 // (#lpl-header, amb la mateixa textura/fons que a la home) i el mateix
-// footer. El contingut es tanca amb el mateix estil que #lpl-quiSom fa a
-// la home (mateix marc, mateixa textura, cantonades arrodonides a baix).
+// footer. El contingut reutilitza directament l'ID i les classes de
+// #lpl-quiSom (.lpl-quiSom-cont) — el mateix marc/textura/cantonades que
+// la secció "Qui som" de la home — perquè sempre quedi consistent encara
+// que aquesta pàgina visqui en un fitxer/estil separat. Com que no hi ha
+// columna d'imatge, el text va dins .lpl-quiSom-textSol (ocupa tot
+// l'ample, a diferència de .lpl-quiSom-colDreta que és per als 2 blocs).
 //
 // ATENCIÓ: el text és un esborrany orientatiu, no assessorament legal.
 // Falten per omplir les dades identificatives reals de l'empresa (nom
@@ -21,9 +25,10 @@ import Footer from "../components/Footer.astro";
 >
   <Header />
 
-  <section id="lpl-politica">
-    <div class="lpl-politica-cont">
-      <h1>Política de Privadesa</h1>
+  <section id="lpl-quiSom">
+    <div class="lpl-quiSom-cont">
+      <div class="lpl-quiSom-textSol">
+        <h1>Política de Privadesa</h1>
 
       <p>
         A La Pera Llimonera ens prenem seriosament la privacitat de les
@@ -120,6 +125,7 @@ import Footer from "../components/Footer.astro";
         revisis periòdicament.
       </p>
       <p><em>Última actualització: [data]</em></p>
+      </div>
     </div>
   </section>
 

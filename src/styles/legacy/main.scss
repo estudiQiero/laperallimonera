@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 16:38 CEST
+// Última modificació: 2026-08-13 17:23 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -504,6 +504,56 @@
                 hyphens: none;
             }
         }
+
+        // Contingut de text sol dins del mateix marc "Qui som" (sense
+        // columna d'imatge), per a pàgines com les legals. A diferència
+        // de .lpl-quiSom-colDreta, ocupa sempre el 100% de l'ample.
+        .lpl-quiSom-textSol {
+            width: 100%;
+            margin: auto;
+            padding: 1em 1.5em;
+
+            h1,
+            h3 {
+                text-align: center;
+                color: $verd;
+            }
+
+            h2 {
+                font-family: $titular;
+                font-size: 1.3em;
+                text-align: left;
+                hyphens: none;
+                letter-spacing: normal;
+                color: $verd;
+                margin-top: 1.4em;
+            }
+
+            p,
+            li {
+                text-align: left;
+                hyphens: none;
+            }
+
+            ul {
+                margin: 0 0 1.4em 1.4em;
+                padding: 0;
+
+                li {
+                    margin-bottom: 0.6em;
+                    list-style: disc;
+                }
+            }
+
+            a {
+                color: $verd;
+                text-decoration: underline;
+            }
+
+            strong {
+                color: $marron;
+            }
+        }
     }
 }
 
@@ -523,6 +573,10 @@
                 h3 {
                     text-align: left;
                 }
+            }
+
+            .lpl-quiSom-textSol {
+                padding: 1em 2em;
             }
         }
     }
