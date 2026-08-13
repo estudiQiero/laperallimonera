@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 14:02 CEST
+// Última modificació: 2026-08-13 16:34 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -2235,6 +2235,18 @@
                         a {
                             color: $ocre;
                             text-decoration: underline;
+                        }
+
+                        // Primer <p>: conté el tick d'acceptació. Amplada
+                        // fixa de 45px, tick centrat a dins; el text (2n
+                        // <p>) ocupa el que li calgui, i tot el bloc queda
+                        // centrat a la pàgina (justify-content: center,
+                        // més amunt).
+                        &:first-child {
+                            width: 45px;
+                            flex-shrink: 0;
+                            display: flex;
+                            justify-content: center;
                         }
                     }
 
