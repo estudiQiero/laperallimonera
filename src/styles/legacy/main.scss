@@ -1,11 +1,12 @@
+// Última modificació: 2026-08-13 10:29 CEST
 // Full d'estil general
-// 
+//
 // 1. Hero
 // 2. Main
 // 3. Footer
 // Cookies
 
-@use "colorsTiposMixins"as *;
+@use "colorsTiposMixins" as *;
 
 .ocultar {
     display: none !important;
@@ -45,9 +46,8 @@
     border: 1.5em solid $crema;
     border-bottom: 0;
 
-    @include fondo($fons-clar-1, #f3f3ed);
+    @include textura-paper();
 
-    background-color: $crema;
     padding: 4em 0 1em 0;
     opacity: 1;
 
@@ -231,9 +231,7 @@
     border-top: 0;
     border-bottom: 0;
 
-    @include fondo($fons-clar-1, #f3f3ed);
-
-    background-color: $crema;
+    @include textura-paper();
 
     // $ocre;
     .lpl-hero-cont-textos {
@@ -399,7 +397,7 @@
 #lpl-quiSom {
     // margin-bottom: 2em;
     padding-bottom: 3em;
-    background-color: $crema;
+    @include textura-paper();
 
     .lpl-quiSom-cont {
         @include seccio();
@@ -2046,11 +2044,11 @@
     @include seccio();
     flex-direction: column;
 
-    border: 1.5em solid #171717;
+    border: 1.5em solid #000;
     border-bottom: 0;
 
-    // @include fondo(#aeaeae40, #000);
-    background-color: #171717;
+    @include fondo(#aeaeae40, #000);
+    background-color: #000;
 
     h3 {
         font-family: $titular;
@@ -2140,69 +2138,66 @@
                     }
                 }
 
-                .lpl-form-final {
+                // Accepta i envia
+                .lpl-form-accepta {
+                    width: 100%;
+                    margin: 1em 0 0 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
 
-                    // Accepta i envia
-                    .lpl-form-accepta {
+                    p {
+                        margin: 0;
+
+                        a {
+                            color: $ocre;
+                            text-decoration: underline;
+                        }
+
+                        &:nth-child(1) {
+                            width: 40px;
+                        }
+
+                        &:nth-child(2) {
+                            width: 300px;
+                            padding-left: .4em;
+                        }
+                    }
+                }
+
+                .lpl-form-envia {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 1.5em;
+
+                    p {
                         width: 100%;
-                        margin: 1em 0 0 0;
-                        padding: 0;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: center;
+                        max-width: 216px;
 
-                        p {
-                            margin: 0;
+                        input[type="submit"] {
+                            text-transform: none;
 
-                            a {
-                                color: $ocre;
-                                text-decoration: underline;
-                            }
-
-                            &:nth-child(1) {
-                                width: 40px;
-                            }
-
-                            &:nth-child(2) {
-                                width: 300px;
-                                padding-left: .4em;
-                            }
-                        }
-                    }
-
-                    .lpl-form-envia {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-top: 1.5em;
-
-                        p {
-                            width: 100%;
-                            max-width: 216px;
-
-                            input[type="submit"] {
-                                text-transform: none;
-
-                                &.btn {
-                                    font-weight: 600 !important;
-                                }
-                            }
-
-                            .wpcf7-submit {
-                                padding: .6em 4em;
-                                border-radius: 200px;
-
-                                font: {
-                                    family: $titular !important;
-                                    size: 1.2em;
-                                    color: $crema;
-                                }
-
-                                background-color: $ocre;
+                            &.btn {
+                                font-weight: 600 !important;
                             }
                         }
 
+                        .wpcf7-submit {
+                            padding: .6em 4em;
+                            border-radius: 200px;
+
+                            font: {
+                                family: $titular !important;
+                                size: 1.2em;
+                                color: $crema;
+                            }
+
+                            background-color: $ocre;
+                        }
                     }
+
                 }
             }
         }
@@ -2270,12 +2265,12 @@
 #lpl-footer {
     @include seccio();
 
-    border: 1.5em solid #171717;
+    border: 1.5em solid #000;
     border-top: 0;
 
     // @include fondo(#aeaeae25, #000);
 
-    background-color: #171717;
+    background-color: #000;
     min-height: 20%;
     display: flex;
     flex-direction: column;
