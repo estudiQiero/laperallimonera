@@ -1,0 +1,11 @@
+# Última modificació: 2026-08-13 19:12 CEST
+# La política de privadesa NO es bloqueja aquí a propòsit: porta la seva
+# pròpia etiqueta <meta name="robots" content="noindex, nofollow"> (a
+# politica_privadesa.astro). Si es bloquegés també des d'aquí, Google no
+# podria arribar a llegir aquesta etiqueta i, en alguns casos, acaba
+# mostrant igualment la URL als resultats (sense descripció). Deixant que
+# la rastregi i respecti el noindex és la manera correcta de treure-la
+# de l'índex.
+
+User-agent: *
+Allow: /
