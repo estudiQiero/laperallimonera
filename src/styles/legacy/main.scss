@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 17:23 CEST
+// Última modificació: 2026-08-13 18:48 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -70,13 +70,24 @@
     // MENU Hamburguesa
     #lpl-cont-menus {
         position: relative;
-        z-index: 1;
+        // Ha d'estar per sobre de .lpl-img-LaPera (germà, z-index:1): si
+        // no, encara que el menú desplegable de dins tingui z-index:9000,
+        // com que és una comparació entre contexts d'apilament GERMANS
+        // (#lpl-cont-menus vs .lpl-img-LaPera), un z-index igual (1=1) es
+        // desempata per ordre al DOM i .lpl-img-LaPera (que va després)
+        // guanyava — bloquejant els clics al menú.
+        z-index: 2;
         width: 100%;
         margin: -2em 0 0 0;
         padding-right: 2em;
         display: flex;
 
         #lpl-menu-principal {
+            // "position" hi ha de ser perquè el z-index tingui efecte. Sense
+            // això, .lpl-img-LaPera (germà, més avall en el DOM, també amb
+            // z-index:1 per la textura) es pintava per sobre del menú
+            // desplegable i bloquejava els clics als enllaços.
+            position: relative;
             z-index: 9000;
             margin-left: 1em;
             width: 50%;
