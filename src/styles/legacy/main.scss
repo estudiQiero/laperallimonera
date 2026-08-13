@@ -1,4 +1,4 @@
-// Última modificació: 2026-08-13 10:41 CEST
+// Última modificació: 2026-08-13 10:59 CEST
 // Full d'estil general
 //
 // 1. Hero
@@ -45,16 +45,28 @@
     flex-direction: column;
     border: 1.5em solid $crema;
     border-bottom: 0;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-
-    @include textura-paper();
+    position: relative;
 
     padding: 4em 0 1em 0;
     opacity: 1;
 
+    // Marc interior (conté la textura): esquinas superior-esquerra i
+    // superior-dreta arrodonides. El marc exterior (border, més amunt) es
+    // manté recte — només la zona interior amb el gra queda arrodonida.
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        @include textura-paper();
+        z-index: 0;
+    }
+
     // MENU Hamburguesa
     #lpl-cont-menus {
+        position: relative;
+        z-index: 1;
         width: 100%;
         margin: -2em 0 0 0;
         padding-right: 2em;
@@ -208,6 +220,8 @@
 
     // Imatge capçelera La Pera
     .lpl-img-LaPera {
+        position: relative;
+        z-index: 1;
         height: 100%;
         width: 100%;
         margin: 0;
@@ -401,11 +415,24 @@
     padding-bottom: 3em;
     border: 1.5em solid $crema;
     border-top: 0;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    @include textura-paper();
+    position: relative;
+
+    // Marc interior (conté la textura): esquinas inferior-esquerra i
+    // inferior-dreta arrodonides. El marc exterior (border, més amunt) es
+    // manté recte, igual que a #lpl-header.
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        @include textura-paper();
+        z-index: 0;
+    }
 
     .lpl-quiSom-cont {
+        position: relative;
+        z-index: 1;
         @include seccio();
         flex-direction: column;
         width: 100%;
@@ -2050,11 +2077,10 @@
     @include seccio();
     flex-direction: column;
 
-    border: 1.5em solid #000;
+    border: 1.5em solid #1b1b1b;
     border-bottom: 0;
 
-    @include fondo(#aeaeae40, #000);
-    background-color: #000;
+    background-color: #1b1b1b;
 
     h3 {
         font-family: $titular;
@@ -2102,45 +2128,55 @@
                 margin: 0 auto;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                // align-items: center;
-                flex-wrap: wrap;
-                column-gap: 1em;
+                // Separa visualment els camps (.lpl-form-camps) del bloc final
+                // (.lpl-form-accepta + .lpl-form-envia dins .lpl-form-final),
+                // perquè no es pisin l'un a l'altre.
+                gap: 1em;
 
                 font: {
                     family: $titular;
                     size: 1.2em;
                 }
 
-                p {
-                    height: 5em;
+                // Camps del formulari (Nom, Empresa, Mail, Telèfon, Missatge),
+                // agrupats en un div propi, separat de .lpl-form-final.
+                .lpl-form-camps {
                     width: 100%;
-                    padding: 0;
-                    font-size: 1.4em;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    column-gap: 1em;
 
-                    label {
-                        margin-bottom: 2em;
+                    p {
+                        height: 5em;
+                        width: 100%;
+                        padding: 0;
+                        font-size: 1.4em;
 
-                        // texte del placeholder
-                        .wpcf7-form-control {
-                            width: 100%;
-                            margin-top: .5em;
-                            font-family: $texte;
-                            color: $crema;
-                            background-color: #000 !important;
-                            border: 1px solid #505050;
-                            padding: 0.7em;
-                            border-radius: 5px;
+                        label {
+                            margin-bottom: 2em;
+
+                            // texte del placeholder
+                            .wpcf7-form-control {
+                                width: 100%;
+                                margin-top: .5em;
+                                font-family: $texte;
+                                color: $crema;
+                                background-color: #000 !important;
+                                border: 1px solid #505050;
+                                padding: 0.7em;
+                                border-radius: 5px;
+                            }
                         }
                     }
-                }
 
-                // Missatge
-                .lpl-form-1col {
-                    p {
-                        height: auto;
-                        width: 100%;
-                        margin: 0;
+                    // Missatge
+                    .lpl-form-1col {
+                        p {
+                            height: auto;
+                            width: 100%;
+                            margin: 0;
+                        }
                     }
                 }
 
@@ -2239,26 +2275,26 @@
             .wpcf7-form {
                 .lpl-form-contCols {
                     max-width: 800px;
-                    flex-direction: row;
-                    justify-content: space-between;
+                    // .lpl-form-camps (camps en 2 columnes) i .lpl-form-final
+                    // (accepta+envia) segueixen apilats en columna, cadascun
+                    // a la seva fila — així no es pisen mai.
+                    flex-direction: column;
                     align-items: center;
 
-                    p {
-                        width: 48%;
-                        max-width: 100%;
-                    }
-
-                    .lpl-form-1col {
+                    .lpl-form-camps {
                         width: 100%;
-                        max-width: none;
-                    }
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
 
-                    &:nth-child(4) {
-                        flex-direction: column;
+                        p {
+                            width: 48%;
+                            max-width: 100%;
+                        }
 
-
-                        .lpl-form-envia {
-                            align-items: flex-end;
+                        .lpl-form-1col {
+                            width: 100%;
+                            max-width: none;
                         }
                     }
                 }

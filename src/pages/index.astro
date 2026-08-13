@@ -1,5 +1,5 @@
 ---
-// Última modificació: 2026-08-13 10:15 CEST
+// Última modificació: 2026-08-13 10:59 CEST
 // Port fidel de plantilles/index-codiHome.php (temaLaPera)
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
@@ -392,36 +392,38 @@ const UP = "/wp-content/uploads/2024/10";
             <label>No omplis això si ets humà: <input name="bot-field" /></label>
           </p>
           <div class="lpl-form-contCols">
-            <p>
-              <label>
-                Nom*
-                <input type="text" name="nom" required class="wpcf7-form-control" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Empresa/Botiga*
-                <input type="text" name="empresa" required class="wpcf7-form-control" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Mail*
-                <input type="email" name="email" required class="wpcf7-form-control" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Telèfon
-                <input type="tel" name="telefon" class="wpcf7-form-control" />
-              </label>
-            </p>
-            <p class="lpl-form-1col">
-              <label>
-                Missatge*
-                <textarea name="missatge" rows="5" required class="wpcf7-form-control"></textarea>
-              </label>
-            </p>
+            <div class="lpl-form-camps">
+              <p>
+                <label>
+                  Nom*
+                  <input type="text" name="nom" required class="wpcf7-form-control" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Empresa/Botiga*
+                  <input type="text" name="empresa" required class="wpcf7-form-control" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Mail*
+                  <input type="email" name="email" required class="wpcf7-form-control" />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Telèfon
+                  <input type="tel" name="telefon" class="wpcf7-form-control" />
+                </label>
+              </p>
+              <p class="lpl-form-1col">
+                <label>
+                  Missatge*
+                  <textarea name="missatge" rows="5" required class="wpcf7-form-control"></textarea>
+                </label>
+              </p>
+            </div>
             <div class="lpl-form-final">
               <div class="lpl-form-accepta">
                 <p><input type="checkbox" name="accepta" required /></p>
