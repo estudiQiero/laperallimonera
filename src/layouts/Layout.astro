@@ -1,14 +1,20 @@
 ---
+// Última modificació: 2026-08-13 19:05 CEST
 import "../styles/site.scss";
 
 export interface Props {
   title?: string;
   description?: string;
+  // Pàgines que no volem que Google indexi (p. ex. política de
+  // privadesa: contingut encara amb dades pendents d'omplir). Afegeix
+  // <meta name="robots" content="noindex, nofollow" />.
+  noindex?: boolean;
 }
 
 const {
   title = "La Pera Llimonera — Experts en gestió web per a WordPress i ecommerce",
   description = "Som els Doctors del WordPress. Creació, manteniment, seguretat i optimització per a WordPress, WooCommerce, Prestashop i Shopify.",
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -26,6 +32,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
